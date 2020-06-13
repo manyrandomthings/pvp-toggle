@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "pvptoggle.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "server": [
+    "ServerPlayerEntity_PvpToggleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "pvptoggle",
+  "version": "${version}",
+  "name": "Pvp Toggle",
+  "description": "Makes pvp toggleable",
+  "authors": [
+    "manyrandomthings"
+  ],
+  "contact": {
+    "homepage": "https://github.com/manyrandomthings/pvp-toggle",
+    "sources": "https://github.com/manyrandomthings/pvp-toggle"
+  },
+  "license": "GNU LGPL V3",
+  "environment": "*",
+  "entrypoints": {
+    "server": [
+      "pvptoggle.PvpToggle"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "pvptoggle.mixins.json",
+      "environment": "server"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
