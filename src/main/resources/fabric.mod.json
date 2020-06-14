@@ -12,7 +12,7 @@
     "sources": "https://github.com/manyrandomthings/pvp-toggle"
   },
   "license": "GNU LGPL V3",
-  "environment": "*",
+  "environment": "server",
   "entrypoints": {
     "server": [
       "pvptoggle.PvpToggle"
