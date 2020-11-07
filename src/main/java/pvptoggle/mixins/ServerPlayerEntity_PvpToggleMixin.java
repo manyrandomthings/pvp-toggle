@@ -1,18 +1,29 @@
 package pvptoggle.mixins;
 
+import com.mojang.authlib.GameProfile;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import pvptoggle.PvpWhitelist;
 
 @Mixin(ServerPlayerEntity.class)
-public abstract class ServerPlayerEntity_PvpToggleMixin {
-    @Redirect(method = "shouldDamagePlayer", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/network/ServerPlayerEntity;isPvpEnabled()Z"))
-    public boolean checkPvpWhitelist(ServerPlayerEntity thisPlayer, PlayerEntity targetPlayer) {
-        // check if pvp is enabled, and check if both players are in the whitelist
-        return thisPlayer.server.isPvpEnabled() && PvpWhitelist.contains(thisPlayer.getGameProfile()) && PvpWhitelist.contains(targetPlayer.getGameProfile());
+public abstract class ServerPlayerEntity_PvpToggleMixin extends PlayerEntity {
+    public ServerPlayerEntity_PvpToggleMixin(World world, BlockPos pos, float yaw, GameProfile profile) {
+        super(world, pos, yaw, profile);
+    }
+
+    @Inject(method = "shouldDamagePlayer", at = @At("HEAD"), cancellable = true)
+    public void checkwhitelist(PlayerEntity targetPlayer, CallbackInfoReturnable<Boolean> cir) {
+        // if either player is not on pvp whitelist, return false
+        if(!PvpWhitelist.contains(this.getGameProfile()) || !PvpWhitelist.contains(targetPlayer.getGameProfile())) {
+            cir.setReturnValue(false);
+        }
     }
 }
