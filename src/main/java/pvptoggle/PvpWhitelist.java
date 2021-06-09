@@ -27,7 +27,7 @@ public class PvpWhitelist {
             pvpWhitelist.load();
         }
         catch(Exception error) {
-            LOGGER.warn("Failed to load pvp whitelist: ", error);
+            LOGGER.error("Failed to load pvp whitelist: ", error);
         }
     }
 
