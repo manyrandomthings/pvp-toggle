@@ -9,9 +9,10 @@
   ],
   "contact": {
     "homepage": "https://github.com/manyrandomthings/pvp-toggle",
+    "issues": "https://github.com/manyrandomthings/pvp-toggle/issues",
     "sources": "https://github.com/manyrandomthings/pvp-toggle"
   },
-  "license": "GNU LGPL V3",
+  "license": "LGPL-3.0-or-later",
   "environment": "server",
   "entrypoints": {
     "server": [
@@ -19,14 +20,12 @@
     ]
   },
   "mixins": [
-    {
-      "config": "pvptoggle.mixins.json",
-      "environment": "server"
-    }
+    "pvptoggle.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.10.0",
-    "fabric": "*",
-    "minecraft": ">=1.16.0"
+    "java": ">=16",
+    "minecraft": "1.17.x",
+    "fabricloader": ">=0.11.3",
+    "fabric": "*"
   }
 }
