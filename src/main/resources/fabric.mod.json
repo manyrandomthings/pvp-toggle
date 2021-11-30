@@ -23,9 +23,9 @@
     "pvptoggle.mixins.json"
   ],
   "depends": {
-    "java": ">=16",
-    "minecraft": "1.17.x",
-    "fabricloader": ">=0.11.3",
+    "java": ">=17",
+    "minecraft": "1.18.x",
+    "fabricloader": ">=0.12.6",
     "fabric": "*"
   }
 }
