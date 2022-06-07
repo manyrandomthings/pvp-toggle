@@ -1,14 +1,12 @@
 package pvptoggle;
 
-import java.io.File;
-
 import com.mojang.authlib.GameProfile;
-
+import net.minecraft.server.Whitelist;
+import net.minecraft.server.WhitelistEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.minecraft.server.Whitelist;
-import net.minecraft.server.WhitelistEntry;
+import java.io.File;
 
 public class PvpWhitelist {
     private static final Logger LOGGER = LogManager.getLogger();

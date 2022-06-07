@@ -1,9 +1,9 @@
 package pvptoggle;
 
-import java.io.File;
-
 import net.fabricmc.api.DedicatedServerModInitializer;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+
+import java.io.File;
 
 public class PvpToggle implements DedicatedServerModInitializer {
   @Override
